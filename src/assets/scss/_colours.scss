@@ -1,0 +1,20 @@
+/* Theme Based */
+
+:root {
+	--color-background: #fdfdfd;
+	--color-background-faded: #f5f5f5;
+	--color-contrast: #1d242b;
+	--color-contrast-faded: #303841;
+}
+
+.body {
+	--color-background: #1d242b;
+	--color-background-faded: #303841;
+	--color-contrast: #fdfdfd;
+	--color-contrast-faded: #f5f5f5;
+}
+
+$color-background: var(--color-background);
+$color-background-faded: var(--color-background-faded);
+$color-contrast: var(--color-contrast);
+$color-contrast-faded: var(--color-contrast-faded);

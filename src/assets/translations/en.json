@@ -1,0 +1,9 @@
+{
+	"headers": {
+		"work": "Work",
+		"showcase": "Showcase"
+	},
+	"extras": {
+		"drag_instruction": "Drag the canvas to explore"
+	}
+}

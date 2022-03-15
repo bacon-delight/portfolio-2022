@@ -1,0 +1,9 @@
+{
+	"headers": {
+		"work": "工作",
+		"showcase": "展示"
+	},
+	"extras": {
+		"drag_instruction": "拖动画布进行探索"
+	}
+}
