@@ -7,63 +7,21 @@
 			v-eco-paragraph(:label="$t('extras.drag_instruction')")
 
 	.grid
-		.card
-			img.card__image(
-				src="https://images.pexels.com/photos/5044497/pexels-photo-5044497.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-				alt=""
-			)
-			.card__description
-				.card__header
-					v-eco-header(:type="5", :label="$t('JustTransact')", :margin="false")
-				.card__tags
-					v-eco-tag(label="Vue", theme="invert")
-					v-eco-tag(label="Vue", theme="invert")
-					v-eco-tag(label="Vue", theme="invert")
-					v-eco-tag(label="Vue", theme="invert")
-					v-eco-tag(label="Vue", theme="invert")
-					v-eco-tag(label="Vue", theme="invert")
-					v-eco-tag(label="Vue", theme="invert")
-					v-eco-tag(label="Vue", theme="invert")
-					v-eco-tag(label="Vue", theme="invert")
-					v-eco-tag(label="Vue", theme="invert")
-					v-eco-tag(label="Vue", theme="invert")
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
-		.block test
+		.card(v-for="project in projects")
+			img.card__image(:src="project.image", alt="")
+			.card__header
+				v-eco-header(:type="6", :label="$t(project.label)", :margin="false")
+			.card__hover-backdrop
+			.card__hover-circle
+			.card__hover-text
+				.card__hover-text--item(v-for="n in 5")
+					v-eco-icon(v-if="n !== 0", type="ri-checkbox-blank-circle-fill")
+					span {{ $t(project.label) }}
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { mapGetters } from "vuex";
 import ScrollBooster from "scrollbooster";
 
 export default defineComponent({
@@ -76,6 +34,11 @@ export default defineComponent({
 				y: 0,
 			},
 		};
+	},
+	computed: {
+		...mapGetters({
+			projects: "projects",
+		}),
 	},
 	mounted() {
 		this.grid = new ScrollBooster({
@@ -121,21 +84,21 @@ export default defineComponent({
 	padding: 5rem;
 	cursor: crosshair;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	column-gap: 8rem;
 	row-gap: 8rem;
 	animation: grid-animation 2s ease-in-out;
 }
 
-.card,
-.block {
-	background: $color-background;
-	// height: 25rem;
+.card {
+	height: 25rem;
 	width: 20rem;
-	cursor: pointer;
+	filter: grayscale(85%);
+	position: relative;
 	transition: all 0.3s ease-in-out;
-	filter: grayscale(100%);
-	border-radius: 8px;
+	cursor: pointer;
+	border-radius: 1rem;
+	overflow: hidden;
 
 	&:hover {
 		transform: scale(1.05);
@@ -143,26 +106,84 @@ export default defineComponent({
 	}
 
 	&__image {
-		height: 20rem;
+		height: 100%;
 		width: 100%;
 		object-fit: cover;
 	}
 
-	&__description {
-		padding: 0 1rem 1rem;
-	}
-
 	&__header {
+		position: absolute;
+		bottom: 0%;
+		left: 50%;
+		transform: translate(-50%, 0);
 		text-align: center;
+		background: $color-background;
+		padding: 0.5rem 1rem;
+		// border-radius: 1rem;
+		width: 100%;
+		transition: all 0.3s ease-in-out;
 	}
 
-	&__tags {
+	&:hover {
+		transform: scale(1.05);
+		filter: grayscale(0%);
+
+		.card__hover-circle {
+			transform: translate(-50%, -50%) scale(1);
+		}
+
+		.card__hover-text,
+		.card__hover-backdrop {
+			opacity: 1;
+		}
+
+		.card__header {
+			opacity: 0;
+		}
+	}
+
+	&__hover-backdrop {
+		position: absolute;
+		background: $color-contrast;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		transition: all 0.3s ease-in-out;
+	}
+
+	&__hover-text {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		white-space: nowrap;
+		opacity: 0;
+		transition: all 0.3s ease-in-out;
+		animation: float-left 10s linear infinite;
+		animation-delay: 0.3s;
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-		column-gap: 0.5rem;
-		row-gap: 0.5rem;
+		column-gap: 1rem;
+		font-size: 2rem;
+
+		&--item {
+			display: flex;
+			column-gap: 1rem;
+			align-items: center;
+		}
+	}
+
+	&__hover-circle {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(0);
+		width: 15rem;
+		height: 15rem;
+		border-radius: 100%;
+		background: $color-background;
+		transition: all 0.3s ease-in-out;
 	}
 }
 

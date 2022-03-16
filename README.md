@@ -1,24 +1,9 @@
-# portfolio-2022
+### Portfolio 2022
 
-## Project setup
-```
-npm install
-```
+This is the source code for the portfolio website and it contains the following highlights:
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- ThreeJS
+- Ecosphere Design System
+- Greensock
+- Vue
+- i18n (Internationalization)

@@ -1,0 +1,92 @@
+[
+	{
+		"label": "Ecosphere Design System",
+		"image": "/img/projects/Ecosphere.png",
+		"tags": ["Vue", "Plugin", "NPM Package", "Design", "UI", "UX"],
+		"links": [
+			{
+				"label": "GihHub",
+				"url": "https://github.com/bacon-delight/just-transact"
+			},
+			{
+				"label": "Application",
+				"url": "https://just-transact.vercel.app/"
+			}
+		]
+	},
+	{
+		"label": "Collatz Conjecture Art",
+		"image": "/img/projects/Collatz.png",
+		"tags": ["Vue"],
+		"links": [
+			{
+				"label": "GihHub",
+				"url": "https://github.com/bacon-delight/threejs-vue-collatz"
+			},
+			{
+				"label": "Application",
+				"url": "https://bacon-webgl-object-003.surge.sh/"
+			}
+		]
+	},
+	{
+		"label": "Connectathon 2021",
+		"image": "/img/projects/Connectathon2021.png",
+		"tags": ["ThreeJS", "Razorpay", "Payments", "Vue", "Nuxt"],
+		"links": [
+			{
+				"label": "GihHub",
+				"url": "https://github.com/bacon-delight/just-transact"
+			},
+			{
+				"label": "Application",
+				"url": "https://just-transact.vercel.app/"
+			}
+		]
+	},
+	{
+		"label": "Auth Simulator",
+		"image": "/img/projects/Connectathon2021.png",
+		"tags": ["Flask", "JWT"],
+		"links": [
+			{
+				"label": "GihHub",
+				"url": "https://github.com/bacon-delight/flask-authentication-simulator"
+			},
+			{
+				"label": "Application",
+				"url": "https://documenter.getpostman.com/view/3672841/TzCHCAr2"
+			}
+		]
+	},
+	{
+		"label": "JustTransact",
+		"image": "/img/projects/JustTransact.png",
+		"tags": ["Vue", "Web3", "Ethereum", "Solidity", "Metamask"],
+		"links": [
+			{
+				"label": "GihHub",
+				"url": "https://github.com/bacon-delight/just-transact"
+			},
+			{
+				"label": "Application",
+				"url": "https://just-transact.vercel.app/"
+			}
+		]
+	},
+	{
+		"label": "Image Convolutions",
+		"image": "/img/projects/ImageConvolutions.png",
+		"tags": ["Vue"],
+		"links": [
+			{
+				"label": "GihHub",
+				"url": "https://github.com/bacon-delight/vue-image-convolutions"
+			},
+			{
+				"label": "Application",
+				"url": "https://image-convolutions.netlify.app/"
+			}
+		]
+	}
+]
