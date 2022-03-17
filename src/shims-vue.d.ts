@@ -12,3 +12,7 @@ declare module "vue-ecosphere" {
 declare module "scrollbooster" {
 	export default any;
 }
+
+declare module "horizontal-scroll" {
+	export default any;
+}

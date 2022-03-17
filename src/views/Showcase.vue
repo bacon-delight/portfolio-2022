@@ -1,22 +1,20 @@
 <template lang="pug">
-.work
-	.work__information
-		.work__header
-			v-eco-header(:type="4", :label="$t('headers.showcase')")
-		.work__description
-			v-eco-paragraph(:label="$t('extras.drag_instruction')")
+.showcase
+	.showcase__information
+		v-eco-paragraph(:label="$t('extras.drag_instruction')")
 
 	.grid
 		.card(v-for="project in projects")
 			img.card__image(:src="project.image", alt="")
 			.card__header
-				v-eco-header(:type="6", :label="$t(project.label)", :margin="false")
-			.card__hover-backdrop
-			.card__hover-circle
-			.card__hover-text
-				.card__hover-text--item(v-for="n in 5")
-					v-eco-icon(v-if="n !== 0", type="ri-checkbox-blank-circle-fill")
-					span {{ $t(project.label) }}
+				v-eco-header(:type="6", :label="project.label", :margin="false")
+			.card__hover
+				.card__hover-backdrop
+				.card__hover-circle
+				.card__hover-text
+					.card__hover-text--item(v-for="n in 5")
+						v-eco-icon(v-if="n !== 0", type="ri-checkbox-blank-circle-fill")
+						span {{ project.label }}
 </template>
 
 <script lang="ts">
@@ -25,7 +23,7 @@ import { mapGetters } from "vuex";
 import ScrollBooster from "scrollbooster";
 
 export default defineComponent({
-	name: "Work",
+	name: "Showcase",
 	data() {
 		return {
 			grid: null as typeof ScrollBooster | null,
@@ -42,23 +40,25 @@ export default defineComponent({
 	},
 	mounted() {
 		this.grid = new ScrollBooster({
-			viewport: document.querySelector(".work"),
+			viewport: document.querySelector(".showcase"),
 			content: document.querySelector(".grid"),
 			scrollMode: "transform",
 		});
 		this.grid.setPosition({
+			x: 150,
+			y: 130,
 			/* eslint-disable-next-line */
-			x: (document.querySelector(".work") as any)?.clientHeight / 2,
+			// x: (document.querySelector(".showcase") as any)?.clientHeight / 2,
 			/* eslint-disable-next-line */
-			y: (document.querySelector(".work") as any)?.clientWidth / 2,
+			// y: (document.querySelector(".showcase") as any)?.clientWidth / 2,
 		});
 	},
 });
 </script>
 
 <style lang="scss" scoped>
-.work {
-	height: 100vh;
+.showcase {
+	height: 100%;
 	width: 100vw;
 	overflow: hidden;
 	position: relative;
@@ -82,7 +82,6 @@ export default defineComponent({
 .grid {
 	width: fit-content;
 	padding: 5rem;
-	cursor: crosshair;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	column-gap: 8rem;
@@ -96,14 +95,7 @@ export default defineComponent({
 	filter: grayscale(85%);
 	position: relative;
 	transition: all 0.3s ease-in-out;
-	cursor: pointer;
-	border-radius: 1rem;
-	overflow: hidden;
-
-	&:hover {
-		transform: scale(1.05);
-		filter: grayscale(0%);
-	}
+	background: $color-background;
 
 	&__image {
 		height: 100%;
@@ -113,15 +105,22 @@ export default defineComponent({
 
 	&__header {
 		position: absolute;
-		bottom: 0%;
-		left: 50%;
-		transform: translate(-50%, 0);
+		top: 90%;
+		left: 10%;
+		transform: translate(0%, -50%);
 		text-align: center;
 		background: $color-background;
 		padding: 0.5rem 1rem;
-		// border-radius: 1rem;
-		width: 100%;
 		transition: all 0.3s ease-in-out;
+	}
+
+	&__hover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
 	}
 
 	&:hover {

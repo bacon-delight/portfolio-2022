@@ -46,7 +46,7 @@
 	},
 	{
 		"label": "Auth Simulator",
-		"image": "/img/projects/Connectathon2021.png",
+		"image": "/img/projects/Auth-Cover.jpg",
 		"tags": ["Flask", "JWT"],
 		"links": [
 			{
