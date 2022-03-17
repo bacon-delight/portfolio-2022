@@ -1,7 +1,7 @@
 <template lang="pug">
 .showcase
 	.showcase__information
-		v-eco-paragraph(:label="$t('extras.drag_instruction')")
+		v-eco-paragraph(:label="$t('extras.drag_instruction')", type="code")
 
 	.grid
 		.card(v-for="project in projects")
