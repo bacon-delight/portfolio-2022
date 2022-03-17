@@ -1,7 +1,8 @@
 {
 	"headers": {
 		"work": "Work",
-		"showcase": "Showcase"
+		"showcase": "Showcase",
+		"projects": "Projects"
 	},
 	"extras": {
 		"drag_instruction": "Drag the canvas to explore"

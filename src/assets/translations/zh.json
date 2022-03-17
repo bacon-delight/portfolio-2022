@@ -1,7 +1,8 @@
 {
 	"headers": {
 		"work": "工作",
-		"showcase": "展示"
+		"showcase": "展示",
+		"projects": "项目"
 	},
 	"extras": {
 		"drag_instruction": "拖动画布进行探索"

@@ -10,12 +10,13 @@
 	"dependencies": {
 		"@prettier/plugin-pug": "^1.19.2",
 		"core-js": "^3.6.5",
+		"gsap": "^3.9.1",
 		"pug": "^3.0.2",
 		"pug-plain-loader": "^1.1.0",
 		"register-service-worker": "^1.7.1",
 		"scrollbooster": "^3.0.2",
 		"vue": "^3.0.0",
-		"vue-ecosphere": "^0.0.26",
+		"vue-ecosphere": "^0.0.28",
 		"vue-i18n": "^9.1.9",
 		"vue-router": "^4.0.0-0",
 		"vuex": "^4.0.0-0"

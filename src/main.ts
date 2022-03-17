@@ -13,7 +13,6 @@ import Ecosphere from "vue-ecosphere";
 import { createI18n } from "vue-i18n";
 import i18n_config from "./i18n";
 const i18n = createI18n(i18n_config);
-(store as any).$i18n = i18n;
 
 const app = createApp(App);
 app.use(store);
