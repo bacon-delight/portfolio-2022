@@ -12,7 +12,9 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapGetters } from "vuex";
+import gsap from "gsap";
 
+// Docs: https://alvarotrigo.com/blog/scroll-horizontally-with-mouse-wheel-vanilla-java/
 export default defineComponent({
 	name: "Projects",
 	computed: {
@@ -20,12 +22,48 @@ export default defineComponent({
 			projects: "projects",
 		}),
 	},
+	data() {
+		return {
+			container: null,
+			position: 0,
+			gsap,
+		};
+	},
+	mounted() {
+		this.container = document.querySelector(".projects__list");
+		this.container.addEventListener("wheel", this.handleScroll);
+		this.distort();
+	},
+	methods: {
+		/* eslint-disable-next-line */
+		handleScroll(event: any): void {
+			this.container.scrollLeft += event.deltaY / 4;
+		},
+		distort() {
+			const newPosition = this.container.scrollLeft;
+			const difference = newPosition - this.position;
+			const speed = difference * 0.08;
+			this.gsap.to(this.container, {
+				skewY: speed / 1.5,
+				// rotateY: speed * 2,
+				duration: 1,
+			});
+			this.position = newPosition;
+			requestAnimationFrame(this.distort);
+		},
+	},
+	onUnmounted() {
+		document
+			.querySelector(".projects__list")
+			?.removeEventListener("wheel", this.handleScroll);
+	},
 });
 </script>
 
 <style lang="scss" scoped>
 .projects {
 	height: 100%;
+	overflow: hidden;
 
 	&__list {
 		display: flex;
@@ -34,6 +72,12 @@ export default defineComponent({
 		align-items: center;
 		padding: 0 2rem;
 		overflow-x: auto;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+		-ms-overflow-style: none;
+		scrollbar-width: none;
 	}
 }
 
